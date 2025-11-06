@@ -32,10 +32,10 @@
 using namespace std;
 
 int main(){
-  int arr[] = {9,5,11,1,6,4};
+  int arr[] = {9,5,11,1,6,0};
   int maxnum = INT_MIN;
   int minnum = INT_MAX;
-  int n = (sizeof(arr) / sizeof(arr[0])) - 1;
+  int n = (sizeof(arr) / sizeof(arr[0]));
   
 
   for(int i=0;i<n;i++){
