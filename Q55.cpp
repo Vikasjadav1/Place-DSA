@@ -4,7 +4,7 @@
 using namespace std;
 
 bool ispossible(vector<int> &arr , int n ,int m ,int maxallowedtime){
-    int painter=0 , time=0;
+    int painter=1 , time=0;
     for(int i=0;i<n;i++){
         if(time+arr[i]<=maxallowedtime){
             time+=arr[i];
@@ -41,7 +41,7 @@ int mintimetopaint(vector<int> &arr , int n , int m) {
 }
    
 int main() {
-    vector<int> arr = {2, 1, 3, 4};
+    vector<int> arr = {40, 30, 10, 20};
     int n = 4, m = 2;
 
     cout <<mintimetopaint(arr, n, m);
