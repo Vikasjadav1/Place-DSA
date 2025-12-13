@@ -30,38 +30,21 @@ Node* buildtree(vector<int> preorder){
     return root;
 }
 
-void topview(Node* root){
-    queue<pair<Node*,int>> q;
-    map<int,int> m;
-    q.push({root,0});
-
-    while(q.size()>0){
-        Node* curr = q.front().first;
-        int currhd=q.front().second;
-        q.pop();
-
-        if(m.find(currhd)==m.end()){
-            m[currhd]=curr->data;
-        }
-
-        if(curr->left != NULL){
-            q.push({curr->left,currhd-1});
-        }
-
-        
-        if(curr->right != NULL){
-            q.push({curr->right,currhd+1});
-        }
+void KthLevel(Node* root , int k){
+    if(root==NULL){
+        return;
     }
-    for(auto it : m){
-        cout<<it.second<<" ";
+    if(k==1){
+        cout<<root->data;
     }
+    KthLevel(root->left,k-1);
+    KthLevel(root->right,k-1);
 }
 
 int main(){
 vector<int> preorder={1,2,-1,-1,3,4,-1,-1,5,-1,-1};
  Node* root = buildtree(preorder);
-topview(root);
+ KthLevel(root,3);
 
 return 0;
 }
